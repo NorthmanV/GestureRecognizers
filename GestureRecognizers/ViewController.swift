@@ -52,6 +52,17 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func handlePinch(_ sender: UIPinchGestureRecognizer) {
+        guard let imageView = sender.view else { return }
+        imageView.transform = imageView.transform.scaledBy(x: sender.scale, y: sender.scale)
+        sender.scale = 1
+    }
+    
+    @IBAction func handleRotation(_ sender: UIRotationGestureRecognizer) {
+        guard let imageView = sender.view else { return }
+        imageView.transform = imageView.transform.rotated(by: sender.rotation)
+        sender.rotation = 0
+    }
     
     // Distance traveled after decelerating to zero velocity at a constant rate.
     
@@ -65,8 +76,14 @@ class ViewController: UIViewController {
         guard currentValue - targetValue != 0  else { return 0 }
         return velocity / (targetValue - currentValue)
     }
-    
+}
 
+extension ViewController: UIGestureRecognizerDelegate {
+    
+    // don't forget to connect delegates in IB for each gesture
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
     
 }
 

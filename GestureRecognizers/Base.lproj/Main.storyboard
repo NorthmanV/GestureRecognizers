@@ -46,17 +46,39 @@
                 <panGestureRecognizer minimumNumberOfTouches="1" id="wjN-d8-Fa4">
                     <connections>
                         <action selector="handlePan:" destination="BYZ-38-t0r" id="jjc-Fu-fzM"/>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="Ict-XZ-Ju4"/>
                     </connections>
                 </panGestureRecognizer>
-                <pinchGestureRecognizer id="1eu-jZ-aYb"/>
-                <rotationGestureRecognizer id="1PE-qT-HQT"/>
+                <pinchGestureRecognizer id="1eu-jZ-aYb">
+                    <connections>
+                        <action selector="handlePinch:" destination="BYZ-38-t0r" id="pJF-DR-oij"/>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="vZW-cO-Oli"/>
+                    </connections>
+                </pinchGestureRecognizer>
+                <rotationGestureRecognizer id="1PE-qT-HQT">
+                    <connections>
+                        <action selector="handleRotation:" destination="BYZ-38-t0r" id="1tB-Yx-yLL"/>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="sOL-cx-mxa"/>
+                    </connections>
+                </rotationGestureRecognizer>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="b3Y-8B-FEZ">
                     <connections>
                         <action selector="handlePan:" destination="BYZ-38-t0r" id="k94-YM-a7S"/>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="atX-IQ-fOp"/>
                     </connections>
                 </panGestureRecognizer>
-                <pinchGestureRecognizer id="N4L-Zw-zuK"/>
-                <rotationGestureRecognizer id="cmF-NB-Dcz"/>
+                <pinchGestureRecognizer id="N4L-Zw-zuK">
+                    <connections>
+                        <action selector="handlePinch:" destination="BYZ-38-t0r" id="4bZ-Jy-49u"/>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="mdp-eH-KLr"/>
+                    </connections>
+                </pinchGestureRecognizer>
+                <rotationGestureRecognizer id="cmF-NB-Dcz">
+                    <connections>
+                        <action selector="handleRotation:" destination="BYZ-38-t0r" id="TuC-lt-S3K"/>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="4Qq-uQ-nbJ"/>
+                    </connections>
+                </rotationGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="140" y="133.5832083958021"/>
         </scene>
