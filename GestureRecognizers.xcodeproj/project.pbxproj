@@ -11,6 +11,9 @@
 		871C19BE216FF0600056CA84 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871C19BD216FF0600056CA84 /* ViewController.swift */; };
 		871C19C1216FF0600056CA84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 871C19BF216FF0600056CA84 /* Main.storyboard */; };
 		871C19C6216FF0610056CA84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 871C19C4216FF0610056CA84 /* LaunchScreen.storyboard */; };
+		8D67C0B62175CA9C00D60569 /* chomp.caf in Resources */ = {isa = PBXBuildFile; fileRef = 8D67C0B52175CA9C00D60569 /* chomp.caf */; };
+		8D67C0B82175E12A00D60569 /* TickleGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D67C0B72175E12A00D60569 /* TickleGestureRecognizer.swift */; };
+		8D67C0BD2175F33C00D60569 /* hehe.caf in Resources */ = {isa = PBXBuildFile; fileRef = 8D67C0BC2175F33C00D60569 /* hehe.caf */; };
 		8DB3B6862170D7B800234389 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DB3B6852170D7B200234389 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -21,6 +24,9 @@
 		871C19C0216FF0600056CA84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		871C19C5216FF0610056CA84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		871C19C7216FF0610056CA84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D67C0B52175CA9C00D60569 /* chomp.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = chomp.caf; sourceTree = "<group>"; };
+		8D67C0B72175E12A00D60569 /* TickleGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickleGestureRecognizer.swift; sourceTree = "<group>"; };
+		8D67C0BC2175F33C00D60569 /* hehe.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = hehe.caf; sourceTree = "<group>"; };
 		8DB3B6852170D7B200234389 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -56,12 +62,23 @@
 			children = (
 				871C19BB216FF0600056CA84 /* AppDelegate.swift */,
 				871C19BD216FF0600056CA84 /* ViewController.swift */,
-				871C19BF216FF0600056CA84 /* Main.storyboard */,
+				8D67C0B72175E12A00D60569 /* TickleGestureRecognizer.swift */,
+				8D67C0B42175CA5000D60569 /* Sounds */,
 				8DB3B6852170D7B200234389 /* Assets.xcassets */,
+				871C19BF216FF0600056CA84 /* Main.storyboard */,
 				871C19C4216FF0610056CA84 /* LaunchScreen.storyboard */,
 				871C19C7216FF0610056CA84 /* Info.plist */,
 			);
 			path = GestureRecognizers;
+			sourceTree = "<group>";
+		};
+		8D67C0B42175CA5000D60569 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				8D67C0B52175CA9C00D60569 /* chomp.caf */,
+				8D67C0BC2175F33C00D60569 /* hehe.caf */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -96,6 +113,7 @@
 				TargetAttributes = {
 					871C19B7216FF0600056CA84 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1000;
 					};
 				};
 			};
@@ -122,8 +140,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D67C0B62175CA9C00D60569 /* chomp.caf in Resources */,
 				871C19C6216FF0610056CA84 /* LaunchScreen.storyboard in Resources */,
 				8DB3B6862170D7B800234389 /* Assets.xcassets in Resources */,
+				8D67C0BD2175F33C00D60569 /* hehe.caf in Resources */,
 				871C19C1216FF0600056CA84 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -136,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				871C19BE216FF0600056CA84 /* ViewController.swift in Sources */,
+				8D67C0B82175E12A00D60569 /* TickleGestureRecognizer.swift in Sources */,
 				871C19BC216FF0600056CA84 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,6 +303,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JMYF9P9VY4;
 				INFOPLIST_FILE = GestureRecognizers/Info.plist;
@@ -291,6 +313,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.akberovapps.GestureRecognizers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -300,6 +324,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JMYF9P9VY4;
 				INFOPLIST_FILE = GestureRecognizers/Info.plist;
@@ -309,6 +334,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.akberovapps.GestureRecognizers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

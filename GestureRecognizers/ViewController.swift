@@ -7,17 +7,25 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
+    
+    @IBOutlet var homerPan: UIPanGestureRecognizer!
+    @IBOutlet var donutPan: UIPanGestureRecognizer!
+    
+    var chompPlayer: AVAudioPlayer? = nil
+    var hehePlayer: AVAudioPlayer? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setSoundTap()
     }
 
     @IBAction func handlePan(_ sender: UIPanGestureRecognizer) {
         let translation = sender.translation(in: view) // center of sender.view is (0, 0) coordinates
         guard let imageView = sender.view else { return }
-            // imageView.center - centet of the imageView in the view coordinate system
+        // imageView.center - centet of the imageView in the view coordinate system
         imageView.center = CGPoint(x: imageView.center.x + translation.x, y: imageView.center.y + translation.y)
             
         // to prevent translation compbine each time set it zero point, if not image rapidly move off the screen
@@ -64,6 +72,47 @@ class ViewController: UIViewController {
         sender.rotation = 0
     }
     
+    // Play sound when tap gesture occurs
+    
+    func loadSound(filename: String) -> AVAudioPlayer {
+        let url = Bundle.main.url(forResource: filename, withExtension: "caf")
+        var player = AVAudioPlayer()
+        do {
+            try player = AVAudioPlayer(contentsOf: url!)
+            player.prepareToPlay()
+        } catch {
+            print("Error: \(error.localizedDescription)")
+        }
+        return player
+    }
+    
+    func setSoundTap() {
+        let filteredSubviews = view.subviews.filter { $0 is UIImageView }
+        filteredSubviews.forEach {
+            let recognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+            recognizer.delegate = self
+            $0.addGestureRecognizer(recognizer)
+            // tap gesture recognizer will only get called if no pan is detected
+            recognizer.require(toFail: homerPan)
+            recognizer.require(toFail: donutPan)
+            
+            // add custom gesture
+            let customRecognizer = TickleGestureRecognizer(target: self, action: #selector(handleTickle))
+            customRecognizer.delegate = self
+            $0.addGestureRecognizer(customRecognizer)
+        }
+        chompPlayer = loadSound(filename: "chomp")
+        hehePlayer = loadSound(filename: "hehe")
+    }
+    
+    @objc func handleTap(recognizer: UITapGestureRecognizer) {
+        chompPlayer?.play()
+    }
+    
+    @objc func handleTickle(recognizer: TickleGestureRecognizer) {
+        hehePlayer?.play()
+    }
+
     // Distance traveled after decelerating to zero velocity at a constant rate.
     
     private func project(initialVelocity: CGFloat, decelerationRate: CGFloat) -> CGFloat {

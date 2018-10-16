@@ -41,6 +41,10 @@
                         <color key="backgroundColor" red="0.0" green="0.62745098040000002" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="donutPan" destination="b3Y-8B-FEZ" id="r1D-dD-AE0"/>
+                        <outlet property="homerPan" destination="wjN-d8-Fa4" id="9h6-yP-S6W"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="wjN-d8-Fa4">
